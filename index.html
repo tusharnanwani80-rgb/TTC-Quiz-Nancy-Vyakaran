@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TTC Quiz – Hindi Vyakaran</title>
+<title>TTC Quiz – Julius Caesar</title>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&family=Righteous&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <style>
@@ -424,7 +424,7 @@ p.sub { font-size: 14px; color: var(--grey); font-weight: 500; margin-bottom: 20
 .progress-track { height: 10px; background: var(--light); border-radius: 50px; border: 2px solid var(--dark); overflow: hidden; }
 .progress-fill { height: 100%; background: linear-gradient(90deg, var(--blue), var(--pink)); border-radius: 50px; width: 0%; transition: width 0.5s cubic-bezier(.34,1.2,.64,1); }
  
-.question-text { font-family: 'Righteous', cursive; font-size: 17px; color: var(--dark); line-height: 1.5; margin-bottom: 20px; min-height: 60px; text-align: left; }
+.question-text { font-family: 'Righteous', cursive; font-size: 18px; color: var(--dark); line-height: 1.5; margin-bottom: 20px; min-height: 60px; text-align: left; }
  
 .options-grid { display: flex; flex-direction: column; gap: 10px; text-align: left; }
 .option {
@@ -558,14 +558,14 @@ p.sub { font-size: 14px; color: var(--grey); font-weight: 500; margin-bottom: 20
           <div class="ficon">📖</div>
           <div class="finfo">
             <div class="flabel">Subject</div>
-            <div class="fval">Hindi Vyakaran</div>
+            <div class="fval">Julius Caesar</div>
           </div>
         </div>
         <div class="fcard c2">
           <div class="ficon">🎯</div>
           <div class="finfo">
             <div class="flabel">Challenge</div>
-            <div class="fval">35 Questions</div>
+            <div class="fval">40 Questions</div>
           </div>
           <div class="fbadge new">NEW</div>
         </div>
@@ -651,8 +651,8 @@ p.sub { font-size: 14px; color: var(--grey); font-weight: 500; margin-bottom: 20
       <h2 id="welcomeText"></h2>
       <p class="sub">Ready to prove yourself? 💪</p>
       <div class="info-strip">
-        <div class="info-pill">📖 Hindi – Vyakaran</div>
-        <div class="info-pill">35 Questions</div>
+        <div class="info-pill">📖 Julius Caesar – Act 1 Scene 1</div>
+        <div class="info-pill">40 Questions</div>
         <div class="info-pill">🏆 Scored</div>
         <div class="info-pill">⏱ Self-paced</div>
       </div>
@@ -666,7 +666,7 @@ p.sub { font-size: 14px; color: var(--grey); font-weight: 500; margin-bottom: 20
       <img src="https://i.postimg.cc/x9mDND2Q/Ttc-logo.png" class="logo" alt="TTC">
       <div class="progress-wrap">
         <div class="progress-meta">
-          <span id="qCounter">Q 1 / 35</span>
+          <span id="qCounter">Q 1 / 40</span>
           <span id="qScore">Score: 0</span>
         </div>
         <div class="progress-track">
@@ -692,7 +692,7 @@ p.sub { font-size: 14px; color: var(--grey); font-weight: 500; margin-bottom: 20
       <div class="score-block">
         <div>
           <span class="score-number" id="scoreNum">0</span>
-          <span class="score-denom" id="scoreDenom">/35</span>
+          <span class="score-denom" id="scoreDenom">/40</span>
         </div>
         <div class="score-pct" id="scorePct">0%</div>
       </div>
@@ -871,43 +871,48 @@ document.getElementById('startBtn').addEventListener('click',()=>{
 /* ════════════════════════
    QUIZ ENGINE
 ════════════════════════ */
-const subjectName="Hindi", chapterName="Vyakaran";
+const subjectName="English", chapterName="Julius Caesar – Act 1 Scene 1";
 const quizData=[
-  {question:"What is the full form of TTC?",options:["The Tuition Classes","Tushar Tuition Classes","Total Time Calculation","The Teaching Center"],correct:"Tushar Tuition Classes",explanation:"Abb ye bhi batana padega kya 😒"},
-  {question:"अविकारी शब्द कौन-सा है?",options:["संज्ञा","विशेषण","क्रियाविशेषण","सर्वनाम"],correct:"क्रियाविशेषण",explanation:"संज्ञा, सर्वनाम, और विशेषण विकारी (changeable) शब्द होते हैं जो लिंग या वचन के अनुसार बदल जाते हैं। क्रियाविशेषण (Adverb) अविकारी (indeclinable) होता है क्योंकि इसमें कोई बदलाव (change) नहीं आता।"},
-  {question:"'मुझे देखकर वह नीचे उतर आया।' इस वाक्य में क्रियाविशेषण कौन-सा है?",options:["देखकर","नीचे","उतर","आया"],correct:"नीचे",explanation:"इस वाक्य (sentence) में 'नीचे' शब्द यह बता रहा है कि काम या क्रिया (action) कहाँ हुई। जगह (place) बताने वाले शब्दों को स्थानवाचक क्रियाविशेषण कहते हैं।"},
-  {question:"'सैनिकों ने घर को चारों ओर से घेर लिया।' इस वाक्य में क्रियाविशेषण छाँटिए।",options:["सैनिकों","घर","चारों ओर","घेर लिया"],correct:"चारों ओर",explanation:"'चारों ओर' (all around) दिशा (direction) बता रहा है कि घेराबंदी कहाँ हुई, इसलिए यह स्थानवाचक क्रियाविशेषण (adverb of place) है।"},
-  {question:"'आज वर्षा दिनभर होने के आसार हैं।' इस वाक्य में क्रियाविशेषण छाँटिए।",options:["आज","वर्षा","दिनभर","आसार"],correct:"दिनभर",explanation:"'दिनभर' (all day) समय की अवधि (duration of time) के बारे में बता रहा है कि बारिश कब तक होगी, इसलिए यह कालवाचक क्रियाविशेषण (adverb of time) है।"},
-  {question:"'ये रुपये तुम दोनों बराबर बाँट लो।' इस वाक्य में क्रियाविशेषण क्या है?",options:["रुपये","तुम दोनों","बराबर","बाँट लो"],correct:"बराबर",explanation:"'बराबर' (equally) शब्द काम (action) की मात्रा या हिस्से (quantity) के बारे में बता रहा है, इसलिए यह परिमाणवाचक क्रियाविशेषण (adverb of quantity) है।"},
-  {question:"'मेरी सारी परेशानियाँ स्वतः समाप्त हो गईं।' इस वाक्य में क्रियाविशेषण छाँटिए।",options:["मेरी","सारी","स्वतः","समाप्त"],correct:"स्वतः",explanation:"'स्वतः' (automatically/on its own) यह बता रहा है कि काम कैसे (manner/method) हुआ। तरीका बताने वाले शब्दों को रीतिवाचक क्रियाविशेषण (adverb of manner) कहते हैं।"},
-  {question:"'ये कपड़े उठाकर नीचे रख दो।' इस वाक्य में 'नीचे' किस प्रकार का क्रियाविशेषण है?",options:["कालवाचक","स्थानवाचक","रीतिवाचक","परिमाणवाचक"],correct:"स्थानवाचक",explanation:"'नीचे' (down) एक जगह (location) के बारे में बताता है कि कपड़े कहाँ रखने हैं, इसलिए यह स्थानवाचक (place) क्रियाविशेषण है।"},
-  {question:"'कुत्ता तेज़ी से भागकर आया।' इस वाक्य में 'तेज़ी से' का भेद बताइए।",options:["स्थानवाचक","कालवाचक","रीतिवाचक","परिमाणवाचक"],correct:"रीतिवाचक",explanation:"'तेज़ी से' (fast/quickly) काम करने का तरीका (manner) बता रहा है कि कुत्ता कैसे भागा, इसलिए यह रीतिवाचक क्रियाविशेषण है।"},
-  {question:"'मुझे पनीर की सब्ज़ी बहुत अच्छी लगती है।' इस वाक्य में 'बहुत' किस प्रकार का क्रियाविशेषण है?",options:["स्थानवाचक","कालवाचक","रीतिवाचक","परिमाणवाचक"],correct:"परिमाणवाचक",explanation:"'बहुत' (a lot/very) शब्द मात्रा (quantity/degree) बता रहा है कि सब्ज़ी कितनी अच्छी लगती है, इसलिए यह परिमाणवाचक क्रियाविशेषण है।"},
-  {question:"'तुम आजकल बहुत _____ खाते हो।' में 'कम' भरें तो वह कौन-सा क्रियाविशेषण होगा?",options:["स्थानवाचक","कालवाचक","रीतिवाचक","परिमाणवाचक"],correct:"परिमाणवाचक",explanation:"'कम' (less) खाने की मात्रा (quantity) बता रहा है, इसलिए यह परिमाणवाचक (quantity) क्रियाविशेषण है।"},
-  {question:"'नदी के आसपास हरियाली है।' इस वाक्य में प्रयुक्त संबंधबोधक शब्द कौन-सा है?",options:["नदी","हरियाली","के आसपास","है"],correct:"के आसपास",explanation:"जो शब्द संज्ञा या सर्वनाम के बाद लगकर वाक्य के बाकी शब्दों से उनका कनेक्शन (relation) जोड़ते हैं, उन्हें संबंधबोधक (preposition) कहते हैं। यहाँ 'के आसपास' (around) संबंधबोधक है।"},
-  {question:"'उसे पढ़ाई की अपेक्षा खेल पसंद है।' इसमें प्रयुक्त 'की अपेक्षा' कौन-सा संबंधबोधक है?",options:["विरोधवाचक","पृथकतावाचक","तुलनावाचक","स्थानवाचक"],correct:"तुलनावाचक",explanation:"जब दो चीज़ों (जैसे पढ़ाई और खेल) के बीच तुलना (comparison) की जाए, तो 'की अपेक्षा' (in comparison to) एक तुलनावाचक संबंधबोधक कहलाता है।"},
-  {question:"'माँ के तुल्य कोई महान नहीं होता।' इस वाक्य में 'के तुल्य' किस भेद का संबंधबोधक है?",options:["तुलनावाचक","सादृश्यवाचक","हेतुवाचक","साधनवाचक"],correct:"तुलनावाचक",explanation:"'तुल्य' (equal/comparable) का इस्तेमाल दो चीज़ों में समानता या तुलना (comparison) करने के लिए होता है।"},
-  {question:"'सीढ़ी के सहारे छत पर चढ़ जाओ।' इसमें 'के सहारे' कौन-सा संबंधबोधक है?",options:["साधनवाचक","कालवाचक","विरोधवाचक","तुलनावाचक"],correct:"साधनवाचक",explanation:"सीढ़ी यहाँ एक साधन (tool/medium) है जिसकी मदद से छत पर चढ़ना है, इसलिए 'के सहारे' साधनवाचक संबंधबोधक है।"},
-  {question:"'कानून के विरुद्ध कार्य करने पर दंड मिलेगा।' इस वाक्य में 'के विरुद्ध' का भेद क्या है?",options:["सहचरवाचक","विरोधवाचक","साधनवाचक","कालवाचक"],correct:"विरोधवाचक",explanation:"'के विरुद्ध' (against) किसी चीज़ के खिलाफ या विपरीत (opposite) जाने को दर्शाता है, इसलिए यह विरोधवाचक (opposition) संबंधबोधक है।"},
-  {question:"मुख्य पदों को जोड़नेवाले समुच्चयबोधक क्या कहलाते हैं?",options:["व्यधिकरण समुच्चयबोधक","समानाधिकरण समुच्चयबोधक","विस्मयादिबोधक","संबंधबोधक"],correct:"समानाधिकरण समुच्चयबोधक",explanation:"जो शब्द एक समान अहमियत (equal importance) वाले मुख्य पदों (main clauses) को जोड़ते हैं, उन्हें समानाधिकरण समुच्चयबोधक (Coordinating conjunctions) कहते हैं।"},
-  {question:"आश्रित वाक्य का अर्थ स्पष्ट करनेवाले समुच्चयबोधक क्या कहलाते हैं?",options:["स्वरूपवाचक समुच्चयबोधक","संकेतवाचक समुच्चयबोधक","समानाधिकरण समुच्चयबोधक","व्यधिकरण समुच्चयबोधक"],correct:"व्यधिकरण समुच्चयबोधक",explanation:"जो शब्द एक मुख्य वाक्य (main clause) को उसपर निर्भर आश्रित वाक्य (dependent clause) से जोड़ते हैं, उन्हें व्यधिकरण समुच्चयबोधक (Subordinating conjunctions) कहते हैं।"},
-  {question:"'आप खाना खाएँगे अथवा चाय पीएँगे।' इस वाक्य में समुच्चयबोधक छाँटिए।",options:["आप","खाएँगे","अथवा","चाय"],correct:"अथवा",explanation:"'अथवा' (or) दो विकल्पों (options) को जोड़ने (connect) का काम कर रहा है, इसलिए यह समुच्चयबोधक (conjunction) है।"},
-  {question:"'प्रश्न बहुत सरल है, परंतु उत्तर सही नहीं आ रहा।' इस वाक्य में समुच्चयबोधक शब्द क्या है?",options:["प्रश्न","बहुत","परंतु","सही"],correct:"परंतु",explanation:"'परंतु' (but) दो वाक्यों को जोड़कर उनके बीच विरोध (contrast) दिखा रहा है।"},
-  {question:"'तुम्हारी पुस्तक फट गई है, अतः तुम मेरी रख लो।' इसमें समुच्चयबोधक छाँटिए।",options:["पुस्तक","अतः","मेरी","रख लो"],correct:"अतः",explanation:"'अतः' (therefore) पहले वाक्य के परिणाम (result) के तौर पर दूसरे वाक्य को जोड़ने का काम कर रहा है।"},
-  {question:"भय का बोध करवानेवाला विस्मयादिबोधक कौन-सा है?",options:["वाह !","बाप रे !","आह !","धिक् !"],correct:"बाप रे !",explanation:"डर या खौफ (fear) महसूस होने पर 'बाप रे !' (Oh my god!) जैसे भयबोधक शब्दों का उपयोग किया जाता है।"},
-  {question:"किस आश्रित उपवाक्य से पहले योजक चिह्न 'कि' लगा होता है?",options:["संज्ञा उपवाक्य","विशेषण उपवाक्य","क्रियाविशेषण उपवाक्य","स्वतंत्र उपवाक्य"],correct:"संज्ञा उपवाक्य",explanation:"'कि' (that) का इस्तेमाल हमेशा संज्ञा उपवाक्य (Noun Clause) को मुख्य वाक्य से जोड़ने के लिए किया जाता है।"},
-  {question:"'चादर बाँधकर सो जाओ।' वाक्य में अशुद्धि ठीक करने के लिए 'बाँधकर' की जगह कौन-सा उपयुक्त शब्द आएगा?",options:["लेकर","ओढ़कर","तानकर","फाड़कर"],correct:"ओढ़कर",explanation:"चादर को बाँधा नहीं जाता, बल्कि ओढ़ा जाता है (covered with), इसलिए शुद्ध रूप 'चादर ओढ़कर' होगा।"},
-  {question:"'किसान बैलों को उठाकर खेतों की ओर चल पड़ा।' इस वाक्य में 'उठाकर' के स्थान पर क्या होना चाहिए?",options:["पकड़कर","भगाकर","हाँककर","मारकर"],correct:"हाँककर",explanation:"बैलों को उठाया नहीं जाता, बल्कि चलाया या हाँका जाता है (driving the bulls), इसलिए 'हाँककर' सही शब्द है।"},
-  {question:"'ईंट से ईंट बजाना' मुहावरे का क्या अर्थ है?",options:["ईंट पर ईंट मारना","नष्ट कर देना","एक ईंट से दूसरी ईंट को बजाना","घर बनाना"],correct:"नष्ट कर देना",explanation:"ईंट से ईंट बजाना एक मुहावरा (idiom) है जिसका मतलब होता है सबकुछ पूरी तरह से तबाह या नष्ट (destroy) कर देना।"},
-  {question:"'कंचन बरसना' मुहावरे का क्या अर्थ है?",options:["सोने की वर्षा होना","लाभ-ही-लाभ होना","कंचन का आना","सोना देना"],correct:"लाभ-ही-लाभ होना",explanation:"कंचन का मतलब सोना होता है, लेकिन मुहावरे में इसका अर्थ बहुत ज़्यादा फायदा (profit) या लाभ-ही-लाभ होना होता है।"},
-  {question:"'चैन की वंशी बजाना' मुहावरे का क्या अर्थ होगा?",options:["चैन से बैठकर वंशी बजाना","सुख से रहना","वंशी पर चैन लगाना","सोते रहना"],correct:"सुख से रहना",explanation:"जब कोई इंसान बिना किसी टेंशन के शांति और सुख (peace and happiness) से रहता है, तो उसे 'चैन की वंशी बजाना' कहते हैं।"},
-  {question:"'छींका टूटना' मुहावरे का क्या अर्थ होगा?",options:["सबकुछ नष्ट होना","अनायास लाभ होना","छींका कमज़ोर होना","बर्तन गिरना"],correct:"अनायास लाभ होना",explanation:"जब अचानक से बिना उम्मीद के कोई फायदा (unexpected gain) हो जाए, तब इस मुहावरे का उपयोग किया जाता है।"},
-  {question:"'ताल ठोंकना' मुहावरे का क्या अर्थ होगा?",options:["तालाब ठीक करना","ताली बजाना","लड़ने के लिए ललकारना","तबला बजाना"],correct:"लड़ने के लिए ललकारना",explanation:"पहलवानी में जब कोई किसी को लड़ाई (fight/challenge) के लिए चुनौती देता है, तो उसे ताल ठोंकना कहते हैं।"},
-  {question:"'आम के आम गुठलियों के दाम' लोकोक्ति का क्या अर्थ है?",options:["आम बेचना","दोहरा लाभ होना","गुठली से पैसे कमाना","घाटा होना"],correct:"दोहरा लाभ होना",explanation:"यह कहावत (proverb) तब बोली जाती है जब किसी एक काम से दोगुना फायदा (double profit) हो जाए।"},
-  {question:"'डूबते को तिनके का सहारा' लोकोक्ति का क्या अर्थ है?",options:["विपत्ति में थोड़ी सहायता बहुत होती है","पानी में डूबना","तिनका पकड़ना","तैरना सीखना"],correct:"विपत्ति में थोड़ी सहायता बहुत होती है",explanation:"जब कोई भारी मुसीबत (big trouble) में फंसा हो, तो उसे मिली छोटी सी मदद (small help) भी बहुत बड़ी लगती है।"},
-  {question:"'छोटा मुँह बड़ी बात' लोकोक्ति का क्या अर्थ है?",options:["कम बोलना","योग्यता से बढ़कर बात करना","छोटे बच्चे का बोलना","घमंड करना"],correct:"योग्यता से बढ़कर बात करना",explanation:"जब कोई इंसान अपनी उम्र या हैसियत (status/ability) से बहुत बड़ी-बड़ी बातें करता है, तब यह कहावत बोली जाती है।"},
-  {question:"'कठिन परिश्रम करना' के लिए उचित मुहावरा क्या है?",options:["दिन-रात एक करना","उड़ती चिड़िया पहचानना","गिरगिट की तरह रंग बदलना","डंके की चोट पर कहना"],correct:"दिन-रात एक करना",explanation:"बहुत ज़्यादा मेहनत (hard work) करने को मुहावरे की भाषा में 'दिन-रात एक करना' कहा जाता है।"},
-  {question:"'सिद्धांतहीन होना' के लिए उचित मुहावरा क्या है?",options:["दिन-रात एक करना","उड़ती चिड़िया पहचानना","गिरगिट की तरह रंग बदलना","डंके की चोट पर कहना"],correct:"गिरगिट की तरह रंग बदलना",explanation:"जब कोई इंसान अपने फायदे के हिसाब से अपनी बातें या विचार बदलता रहता है (change colors), तो उसे 'गिरगिट की तरह रंग बदलना' कहते हैं।"}
+  {question:"What is the setting of Act 1 Scene 1?",options:["A palace","A battlefield","A street in Rome","A temple"],correct:"A street in Rome",explanation:"The scene clearly opens in a Roman street where commoners gather."},
+  {question:"Why are the common people roaming the streets?",options:["For a festival","To protest","To celebrate Caesar's victory","To elect a leader"],correct:"To celebrate Caesar's victory",explanation:"They are celebrating Caesar's triumph over Pompey."},
+  {question:"Who are Flavius and Marullus?",options:["Senators","Tribunes","Soldiers","Kings"],correct:"Tribunes",explanation:"Tribunes are officials who protect people's rights."},
+  {question:"What is the main concern of the tribunes?",options:["War","Caesar's rising power","Poverty","Religion"],correct:"Caesar's rising power",explanation:"They fear Caesar may become too powerful and threaten liberty."},
+  {question:"What does Flavius call the citizens?",options:["Brave men","Idle creatures","Noble Romans","Soldiers"],correct:"Idle creatures",explanation:"He criticizes them for wasting time."},
+  {question:"What is the profession of the First Citizen?",options:["Blacksmith","Carpenter","Cobbler","Soldier"],correct:"Carpenter",explanation:"He clearly states his profession."},
+  {question:"Why does Marullus question the citizens' clothing?",options:["It is dirty","It is expensive","They are not in work clothes","It is torn"],correct:"They are not in work clothes",explanation:"Workers should wear professional attire on working days."},
+  {question:"What is the profession of the Second Citizen?",options:["Carpenter","Cobbler","Merchant","Farmer"],correct:"Cobbler",explanation:"He is a shoemaker."},
+  {question:"The cobbler uses puns mainly to:",options:["Entertain","Mock authority (Mock means insult or Majaak karna)","Show intelligence","Confuse"],correct:"Mock authority (Mock means insult or Majaak karna)",explanation:"His wordplay subtly insults Marullus."},
+  {question:"\"Mender of bad soles\" is a pun referring to:",options:["Shoes only","Souls only","Both shoes and souls","None"],correct:"Both shoes and souls",explanation:"Both words have same pronunciation but different meaning."},
+  {question:"What does \"be not out with me\" mean?",options:["Don't go out","Don't be angry with me","Stay outside","Ignore me"],correct:"Don't be angry with me",explanation:"It is a phrase that means please do not be angry with me."},
+  {question:"What does the cobbler mean by \"I can mend you\"?",options:["Fix shoes","Improve character","Heal body","Repair clothes"],correct:"Improve character",explanation:"Another pun — Marullus misunderstands it."},
+  {question:"Why is the cobbler not in his shop?",options:["Holiday","Sick","No work","Closed shop"],correct:"Holiday",explanation:"He says they are celebrating Caesar."},
+  {question:"What does Flavius accuse the citizens of forgetting?",options:["Caesar","Rome","Pompey","Senate"],correct:"Pompey",explanation:"He reminds them of their past loyalty."},
+  {question:"What does Marullus call the citizens metaphorically?",options:["Heroes of Rome","Senseless things","Kings of India","Warriors of Pompey"],correct:"Senseless things",explanation:"He criticizes their lack of loyalty."},
+  {question:"What river is mentioned in the speech?",options:["Nile","Tiber","Thames","Ganga"],correct:"Tiber",explanation:"Tiber is the central river of Rome."},
+  {question:"What does \"replication of your sounds\" mean?",options:["Echo","Silence","Noise","Music"],correct:"Echo",explanation:"Refers to sound echoing in riverbanks."},
+  {question:"What emotion do the tribunes accuse the citizens of lacking?",options:["Courage (Himmat)","Gratitude (Thankfulness)","Intelligence (Cleverness)","Strength (Taakat)"],correct:"Gratitude (Thankfulness)",explanation:"They forgot Pompey."},
+  {question:"What should the citizens do as punishment?",options:["Leave Rome and do not come back again","Pray and repent at river Tiber","Work harder for Pompey","Fight with Caesar"],correct:"Pray and repent at river Tiber",explanation:"Tribunes tell them to seek forgiveness."},
+  {question:"What is meant by \"cull out a holiday\"?",options:["Choose a holiday","Cancel a holiday","Work on holiday","Forget holiday"],correct:"Choose a holiday",explanation:"\"Cull\" means select."},
+  {question:"What does \"vulgar\" refer to in context?",options:["Rude people","Common people","Rich people","Leaders"],correct:"Common people",explanation:"Shakespeare uses \"vulgar\" for the masses."},
+  {question:"What is the Feast of Lupercal?",options:["War festival","Religious festival","Political meeting","Funeral"],correct:"Religious festival",explanation:"Celebrated in honor of a Roman god."},
+  {question:"What do the tribunes plan to remove?",options:["Citizens from Rome","Laws set by Caesar","Decorations from statues","Soldiers from War"],correct:"Decorations from statues",explanation:"They want to reduce Caesar's popularity."},
+  {question:"Why remove decorations from statues?",options:["Cleanliness of statues","Save money on garlands","Reduce Caesar's influence","Tradition of Tribunes"],correct:"Reduce Caesar's influence",explanation:"To make Caesar look without any power and respect."},
+  {question:"What metaphor is used for Caesar?",options:["Lion","Hawk","Snake","King"],correct:"Hawk",explanation:"Suggests rising power — the Tribunes will need to pluck his feathers to change him into a commoner."},
+  {question:"\"Pluck feathers\" symbolizes:",options:["Hurt Caesar physically","Reduce his power","Kill him","Praise him (Praise means Taarif karna)"],correct:"Reduce his power",explanation:"To limit his rise."},
+  {question:"What will happen if Caesar rises too high?",options:["Peace at Rome","War with Pompey","Loss of liberty (Liberty means Rights of people)","Wealth of Marullus"],correct:"Loss of liberty (Liberty means Rights of people)",explanation:"Fear of dictatorship."},
+  {question:"What kind of tone do the tribunes use?",options:["Humorous","Angry","Sad","Neutral"],correct:"Angry",explanation:"Strong insults have been made by them."},
+  {question:"What is the cobbler's attitude?",options:["Fearful and shy","Serious and Comedic","Playful and witty","Angry"],correct:"Playful and witty",explanation:"Playful means Majaak karna and witty means cleverness."},
+  {question:"What is the central theme of Act 1 Scene 1?",options:["Love and War","Loyalty vs betrayal","War only","Friendship"],correct:"Loyalty vs betrayal",explanation:"Citizens shift loyalty towards Caesar from Pompey."},
+  {question:"What does \"mechanical\" mean in this scene?",options:["Robot","Worker","Lazy","Intelligent"],correct:"Worker",explanation:"Refers to laborers."},
+  {question:"Why are the tribunes worried?",options:["Caesar is weak","Caesar is too popular","People are poor","War coming"],correct:"Caesar is too popular",explanation:"Popularity = danger."},
+  {question:"What does \"basest metal\" mean?",options:["Gold i.e Shine","Silver i.e Wealth","Lead-like dullness","Iron"],correct:"Lead-like dullness",explanation:"Symbolizes low character of the public."},
+  {question:"What happens to the commoners after being scolded?",options:["They Fight","They Laugh","They Leave silently","They Protest"],correct:"They Leave silently",explanation:"They feel guilty."},
+  {question:"What is the dramatic purpose of this scene?",options:["Comedy","Introduce conflict","Show battle","End story"],correct:"Introduce conflict",explanation:"Conflict means difference of opinions."},
+  {question:"What kind of leader is Caesar shown as indirectly?",options:["Weak","Dangerous","Foolish","Poor"],correct:"Dangerous",explanation:"His power threatens Rome."},
+  {question:"What does \"ingratitude\" refer to in this scene?",options:["Disrespect to Caesar","Forgetting Pompey","Disobeying law","Ignoring tribunes"],correct:"Forgetting Pompey",explanation:"Key moral issue of the scene."},
+  {question:"What can we say about the Second Citizen?",options:["Foolish and dumb","Intelligent and witty","Angry at the tribunes","Silent"],correct:"Intelligent and witty",explanation:"His puns show sharp thinking."},
+  {question:"What role do tribunes play in Rome?",options:["Kings","Judges","Protectors of citizens","Soldiers"],correct:"Protectors of citizens",explanation:"They defend public liberty."},
+  {question:"What is the full form of TTC?",options:["The Tuition Center","Tushar Teaching Circle","Tushar Tuition Classes","Teaching Talent Club"],correct:"Tushar Tuition Classes",explanation:"TTC Bole To Tushar Tuition Classes 😏"}
 ];
  
 let username='', questions=[], qIndex=0, score=0;
